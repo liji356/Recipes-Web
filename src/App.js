@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Navbar from './component/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Addrecipes from './component/Addrecipes';
+import View from './component/View';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" exact element={<Addrecipes/>}/>
+      <Route path="/view" exact element={<View/>}/>
      </Routes>
     
     
