@@ -4,15 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Navbar from './component/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Addrecipes from './component/Addrecipes';
 
 function App() {
   return (
     <>
-    <Navbar/>
+    
     <BrowserRouter>
     <Routes>
-      
-    </Routes>
+      <Route path="/" exact element={<Addrecipes/>}/>
+     </Routes>
     
     
     </BrowserRouter>
