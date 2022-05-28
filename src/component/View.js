@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import Navbar from './Navbar'
 
 const View = () => {
-  var[foodlist,setlist]=useState([])
+  var [foodlist,setlist]=useState([])
   axios.get("http://localhost:4000/api/viewall").then(
     (response)=>{
       console.log(response.data)
@@ -13,6 +14,7 @@ const View = () => {
   
   return (
     <div>
+      <Navbar/>
       
 
 
