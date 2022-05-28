@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import Navbar from './Navbar'
 
@@ -6,11 +7,28 @@ const Addrecipes = () => {
     var[title,settitle]=useState("")
     var[category,setcategory]=useState("")
     var[description,setdescription]=useState("")
-    var[prepaid,setprepaid]=useState("")
+    var[prepare,setprepare]=useState("")
 
     const newrecipes=()=>{
-        const data={"title":title,"category":category,"description":description,"prepaid":prepaid}
+        const data={"title":title,"category":category,"description":description,"prepare":prepare}
         console.log(data)
+
+        axios.post("http://localhost:4000/api/recipes",data).then(
+            (response)=>{
+                console.log(response.data)
+                console.log(response.data)
+
+                if(response.data==="success")
+                {
+                    alert("succesfull")
+                }
+                else
+                {
+                    alert("failed")
+                }
+
+            }
+        )
     }
   return (
     <div>
@@ -36,8 +54,8 @@ const Addrecipes = () => {
                     
                 </div>
                 <div className="col-col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                <label className='form-label'>Prepaid By:</label> 
-                <textarea onChange={(x)=>{setprepaid(x.target.value)}} className="form-control" id="" cols="30" rows="5"></textarea>
+                <label className='form-label'>Prepare By:</label> 
+                <textarea onChange={(x)=>{setprepare(x.target.value)}} className="form-control" id="" cols="30" rows="5"></textarea>
                 </div>
                 <div className="col-col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <button onClick={newrecipes} className="btn btn-info">SUBMIT</button>
